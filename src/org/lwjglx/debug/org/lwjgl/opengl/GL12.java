@@ -48,6 +48,7 @@ public class GL12 {
             checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, count, type, indices);
+        RT.draw(count);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
@@ -55,6 +56,7 @@ public class GL12 {
             checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, type, indices);
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
@@ -62,6 +64,7 @@ public class GL12 {
             checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
@@ -69,6 +72,7 @@ public class GL12 {
             checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
@@ -76,6 +80,7 @@ public class GL12 {
             checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
+        RT.draw(indices.remaining());
     }
 
     private static void glTexImage3D_trace(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, Buffer pixels, MethodCall mc) {
